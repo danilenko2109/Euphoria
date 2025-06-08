@@ -1,0 +1,231 @@
+// Переменные
+$primary-color: #3498db;
+$secondary-color: #9b59b6;
+$accent-color: #e74c3c;
+$text-color: #2c3e50;
+$light-gray: #f8f9fa;
+$shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.08);
+$shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
+$transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+// Анимации
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 16px;
+  box-sizing: border-box;
+  animation: fadeIn 0.3s ease-out;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background-color: white;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: $shadow-md;
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $primary-color, $secondary-color);
+  }
+
+  &__header {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $text-color;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    svg {
+      color: $primary-color;
+    }
+  }
+
+  &__content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: lighten($text-color, 10%);
+    margin: 16px 0;
+    overflow-y: auto;
+    max-height: 60vh;
+    padding-right: 8px;
+    
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: rgba($primary-color, 0.3);
+      border-radius: 3px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-height: 300px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin: 16px 0;
+    box-shadow: $shadow-sm;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  &__button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: $transition;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    
+    &--secondary {
+      background: $light-gray;
+      color: $text-color;
+      
+      &:hover {
+        background: darken($light-gray, 5%);
+        box-shadow: $shadow-sm;
+      }
+    }
+    
+    &--primary {
+      background: linear-gradient(135deg, $primary-color, $secondary-color);
+      color: white;
+      box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba($primary-color, 0.4);
+      }
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: $transition;
+    color: #888;
+    
+    &:hover {
+      background: rgba($accent-color, 0.1);
+      color: $accent-color;
+      transform: rotate(90deg);
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: rgba($light-gray, 0.5);
+    padding: 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+    
+    div {
+      display: flex;
+      align-items: center;
+    }
+    
+    span:first-child {
+      font-weight: 600;
+      color: $text-color;
+      min-width: 100px;
+    }
+    
+    .color-swatch {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-left: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// Адаптация для мобильных
+@media (max-width: 576px) {
+  .modal {
+    padding: 24px 16px;
+    max-width: 95%;
+    
+    &__header {
+      font-size: 1.5rem;
+      padding-right: 30px;
+    }
+    
+    &__footer {
+      flex-direction: column;
+    }
+    
+    &__button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}

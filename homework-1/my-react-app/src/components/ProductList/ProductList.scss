@@ -1,0 +1,49 @@
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 1rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+  gap: 10px;
+
+  width: 100%;
+  min-height: 100vh;
+
+}
+
+
+@media (min-width: 768px) {
+  .product-list {
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+}
+
+
+
+
+
+@media (min-width: 1200px) {
+  .product-list {
+    grid-template-columns: repeat(5, 1fr);
+    
+
+   
+   
+   
+  }
+}
+
+
+
+@keyframes fadeInGrid {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
