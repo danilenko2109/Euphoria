@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import "./Check.scss";
+import "./CheckoutPage.scss";
 import ProductList from '../../components/ProductList/ProductList';
 
 const CheckoutPage = () => {

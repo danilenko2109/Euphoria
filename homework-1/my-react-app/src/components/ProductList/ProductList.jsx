@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import ProductCard from "../ProductCard/ProductCard";
 import FilterBar from "../FilterBar/FilterBar";
+import ViewModeToggle from "../ViewModeToggle/ViewModeToggle"; // импорт переключателя
+import { useViewMode } from "../../context/ViewModeContext";
 import "./ProductList.scss";
 
 const ProductList = ({
@@ -13,6 +15,8 @@ const ProductList = ({
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [priceSort, setPriceSort] = useState("");
+
+  const { viewMode } = useViewMode();
 
   const colors = [...new Set(products.map((p) => p.color))];
   const categories = [...new Set(products.map((p) => p.category))];
@@ -45,23 +49,63 @@ const ProductList = ({
         onPriceSortChange={setPriceSort}
       />
 
-      <div className="product-list">
-        {filteredProducts.map((product) => {
-          const isFavorite = favoriteItems.some(
-            (fav) => fav.article === product.article
-          );
+      <ViewModeToggle /> {/* Добавляем переключатель здесь */}
 
-          return (
-            <ProductCard
-              key={product.article}
-              {...product}
-              onAddToCart={onAddToCart}
-              onAddToFavorites={onAddToFavorites}
-              isFavorite={isFavorite}
-            />
-          );
-        })}
-      </div>
+      {viewMode === "grid" ? (
+        <div className="product-list grid-view">
+          {filteredProducts.map((product) => {
+            const isFavorite = favoriteItems.some(
+              (fav) => fav.article === product.article
+            );
+
+            return (
+              <ProductCard
+                key={product.article}
+                {...product}
+                onAddToCart={onAddToCart}
+                onAddToFavorites={onAddToFavorites}
+                isFavorite={isFavorite}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <table className="product-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Color</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredProducts.map((product) => {
+              const isFavorite = favoriteItems.some(
+                (fav) => fav.article === product.article
+              );
+
+              return (
+                <tr key={product.article}>
+                  <td>
+                    <img src={product.image} alt={product.title} width="50" />
+                  </td>
+                  <td>{product.title}</td>
+                  <td>{product.price}</td>
+                  <td>{product.color}</td>
+                  <td>
+                    <button onClick={() => onAddToCart(product)}>Add</button>
+                    <button onClick={() => onAddToFavorites(product)}>
+                      {isFavorite ? "★" : "☆"}
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };

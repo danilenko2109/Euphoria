@@ -6,7 +6,7 @@ import Modal from "../../components/Modal/Modal";
 
 const CartPage = ({ cartItems, onRemove, image, title }) => {
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
-  const deliveryFee = totalPrice * 0.3;
+  const deliveryFee = 5;
   const roundedFee = Number(deliveryFee.toFixed(2));
   const finalPrice = totalPrice + deliveryFee;
 

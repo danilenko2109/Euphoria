@@ -1,12 +1,17 @@
 const ModalWrapper = ({ children, onClose }) => {
-    return (
-      <div className="modal-overlay" onClick={onClose}>
-        <div className="modal" onClick={(e) => e.stopPropagation()}>
-          {children}
-        </div>
+  return (
+    <div className="modal-overlay" data-testid="modal-overlay" onClick={onClose}>
+      <div
+        className="modal"
+        data-testid="modal-inner"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        {children}
       </div>
-    );
-  };
-  
-  export default ModalWrapper;
-  
+    </div>
+  );
+};
+
+export default ModalWrapper;

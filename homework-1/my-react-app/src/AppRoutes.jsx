@@ -5,7 +5,7 @@ import FavoritesPage from "./pages/FavoritePage/FavoritePage";
 import CheckoutPage from "./pages/ChechoutPage/CheckoutPage";
 import HomePage from "./pages/HomePage/HomePage";
 import ProductPage from "./pages/ProductPage/ProductPage";
-
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 
 const AppRoutes = ({ 
@@ -19,7 +19,7 @@ const AppRoutes = ({
 }) => {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/Euphoria" element={<HomePage />} />
 
       <Route
         path="/products"
@@ -71,6 +71,17 @@ const AppRoutes = ({
         path="/get-it"
         element={<CheckoutPage />}
       />
+       <Route
+    path="/search"
+    element={
+      <SearchPage
+        products={products} // или из Redux/hook
+        onAddToCart={handleAddToCart}
+        
+        favoriteItems={favoriteItems}
+      />
+    }
+  />
     </Routes>
   );
 };

@@ -112,6 +112,7 @@
     align-items: center;
     gap: 0.3rem;
     transition: color 0.3s ease;
+    background-color: transparent;
 
     &::after {
       content: "";

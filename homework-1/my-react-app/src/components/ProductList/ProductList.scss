@@ -5,36 +5,22 @@
   margin: 0 auto;
   box-sizing: border-box;
   gap: 10px;
-
   width: 100%;
   min-height: 100vh;
-
+  animation: fadeInGrid 0.5s ease forwards;
 }
-
 
 @media (min-width: 768px) {
   .product-list {
     grid-template-columns: repeat(3, 1fr);
-    
+  }
 }
-}
-
-
-
-
 
 @media (min-width: 1200px) {
   .product-list {
     grid-template-columns: repeat(5, 1fr);
-    
-
-   
-   
-   
   }
 }
-
-
 
 @keyframes fadeInGrid {
   from {
@@ -47,3 +33,45 @@
   }
 }
 
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 16px;
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f8f9fa;
+  }
+
+  .product-table-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+}
+
+/* Адаптивность для маленьких экранов — горизонтальный скролл и чуть меньше шрифты */
+@media (max-width: 768px) {
+  .product-table {
+    display: block;          /* Для возможности горизонтального скролла */
+    overflow-x: auto;
+    white-space: nowrap;     /* Не переносить текст, чтобы была прокрутка */
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  th, td {
+    padding: 8px 10px;
+  }
+
+  .product-table-image {
+    width: 40px;
+    height: 40px;
+  }
+}
