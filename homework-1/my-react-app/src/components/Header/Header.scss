@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 1.3rem;
   width: 100%;
   box-sizing: border-box;
    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -27,6 +27,8 @@
   .logo_zalando {
     width: 111px;
     height: 40px;
+    background-image: url("../../assets/Euphoria.png");
+    background-repeat: no-repeat;
   }
 
   .burger-menu {
@@ -138,7 +140,7 @@
 
 @media (min-width: 992px) {
   .header {
-    padding: 1rem 2rem; 
+    padding: 1.3rem 2rem; 
     width: 100vw;
 
     .burger-menu {

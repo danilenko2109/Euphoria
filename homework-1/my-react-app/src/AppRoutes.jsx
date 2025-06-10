@@ -19,7 +19,7 @@ const AppRoutes = ({
 }) => {
   return (
     <Routes>
-      <Route path="/Euphoria" element={<HomePage />} />
+      <Route path="/" element={<HomePage />} />
 
       <Route
         path="/products"

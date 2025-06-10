@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router";
 import { ShoppingCart, Heart, Menu, X } from "lucide-react";
 import { MdSearch } from "react-icons/md";
-import headerLogo from '../../assets/Euphoria.png';
+
 import "./Header.scss";
 
 const Header = ({ cartItems = [] }) => {
@@ -49,8 +49,8 @@ const Header = ({ cartItems = [] }) => {
 
   return (
     <header className="header">
-      <NavLink to="/Euphoria">
-        <img src={headerLogo} alt="Logo" className="logo_zalando" />
+      <NavLink to="/" className="logo_zalando">
+        
       </NavLink>
 
       <nav ref={navRef} className={`nav ${menuOpen ? "open" : ""}`}>
