@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
-        {/* Основные колонки - меняется только расположение */}
+       
         <div className="footer__columns">
           <div className="footer__column">
             <h3 className="footer__title">Need Help</h3>
@@ -49,22 +49,22 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Download App Section */}
+      
         <div className="footer__download">
           <h3 className="footer__title">Download The App</h3>
           <div className="footer__app-links">
             <a href="#" className="app-link">
-              {/* Вставьте свою иконку Google Play */}
+             
               <span>Google Play</span>
             </a>
             <a href="#" className="app-link">
-              {/* Вставьте свою иконку App Store */}
+         
               <span>App Store</span>
             </a>
           </div>
         </div>
 
-        {/* Social Media and Copyright */}
+    
         <div className="footer__bottom">
           <div className="footer__social">
             <a href="#"><FaFacebook /></a>

@@ -1,4 +1,4 @@
-// Переменные
+
 $primary-color: #3498db;
 $secondary-color: #9b59b6;
 $accent-color: #e74c3c;
@@ -8,7 +8,7 @@ $shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.08);
 $shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
 $transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-// Анимации
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -208,7 +208,7 @@ $transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 }
 
-// Адаптация для мобильных
+
 @media (max-width: 576px) {
   .modal {
     padding: 24px 16px;

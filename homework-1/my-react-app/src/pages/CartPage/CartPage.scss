@@ -200,7 +200,7 @@ $transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 }
 
-/* Tablet (≥ 768px) */
+
 @media (min-width: 768px) {
   .cart {
     padding: 2rem 1.5rem;
@@ -245,7 +245,6 @@ $transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 }
 
-/* Desktop (≥ 1024px) */
 @media (min-width: 1024px) {
   .cart {
     padding: 3rem 2rem;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import ProductCard from "../ProductCard/ProductCard";
 import FilterBar from "../FilterBar/FilterBar";
-import ViewModeToggle from "../ViewModeToggle/ViewModeToggle"; // импорт переключателя
+import ViewModeToggle from "../ViewModeToggle/ViewModeToggle";
 import { useViewMode } from "../../context/ViewModeContext";
 import "./ProductList.scss";
 
@@ -21,7 +21,7 @@ const ProductList = ({
   const colors = [...new Set(products.map((p) => p.color))];
   const categories = [...new Set(products.map((p) => p.category))];
 
-  // фильтрация по цвету и категории
+
   let filteredProducts = products.filter((product) => {
     const colorMatch = selectedColor === "" || product.color === selectedColor;
     const categoryMatch =
@@ -29,7 +29,7 @@ const ProductList = ({
     return colorMatch && categoryMatch;
   });
 
-  // сортировка по цене
+ 
   if (priceSort === "asc") {
     filteredProducts.sort((a, b) => a.price - b.price);
   } else if (priceSort === "desc") {
@@ -49,7 +49,7 @@ const ProductList = ({
         onPriceSortChange={setPriceSort}
       />
 
-      <ViewModeToggle /> {/* Добавляем переключатель здесь */}
+      <ViewModeToggle /> 
 
       {viewMode === "grid" ? (
         <div className="product-list grid-view">

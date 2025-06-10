@@ -1,11 +1,11 @@
-// src/store/productsSlice.js
+
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import productsData from "../data/products.json";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
-    // Возвращаем локальные данные напрямую
+
     return productsData;
   }
 );
